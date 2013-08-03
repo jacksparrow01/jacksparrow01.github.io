@@ -109,6 +109,9 @@ p.tagline {
 
 .download-bar .inner {
   overflow: hidden;
+  font-size: 16px;
+  color: white;
+  font-family: 'Microsoft yahei', 宋体;
 }
 
 .download-bar .watch-fork iframe {
