@@ -16,7 +16,12 @@ $(document).ready(function(){
         }
       }
     }
-    $(this).before("<pre class='lines'>" + lines.join("\n") + "</pre>");
+    
+    var $wrap = $("<div></div>").insertBefore(this);
+
+    $wrap.append("<pre class='lines'>" + lines.join("\n") + "</pre>");
+    $wrap.append(this);
+
   });
 
   var headings = [];

@@ -15,7 +15,7 @@ title: 文章列表
   <ul>
     {% for page in site.html_pages %}
       {% if page.title %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        <li><a href="{{ page.url }}">{{ page.description }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
