@@ -17,10 +17,10 @@ $(document).ready(function(){
       }
     }
     
-    var $wrap = $("<div></div>").insertBefore(this);
+    //var $wrap = $("<div></div>").insertBefore(this);
 
-    $wrap.append("<pre class='lines'>" + lines.join("\n") + "</pre>");
-    $wrap.append(this);
+    //$wrap.append("<pre class='lines'>" + lines.join("\n") + "</pre>");
+    //$wrap.append(this);
 
   });
 
