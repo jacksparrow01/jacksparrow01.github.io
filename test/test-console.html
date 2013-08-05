@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>测试Chrome中的console.log奇怪问题</title>
+    <script id="script" type="text/javascript">
+    var opt = {
+      "a" : "b"
+    };
+    console.log(opt);
+    opt.a = "aaaaa";
+    console.log(opt);
+    </script>
+    <script type="text/javascript">
+    
+      //document.getElementById('script_text').innerHTML = document.getElementById($('#script').text());
+    
+    </script>
+  </head>
+  <body>
+    <h2>代码：</h2>
+    <pre id="script_text"></pre>
+
+  </body>
+</html>
