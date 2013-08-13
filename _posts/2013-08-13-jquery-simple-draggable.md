@@ -89,3 +89,4 @@ $.dragHelper.drag(event);
 1. jekyll编译md语法的时候，在html标记（比如code元素）中不能出现html实体字符，html的实体字符如下：
 http://www.w3school.com.cn/html/html_entities.asp，比较常见的有<、>、&，需要注意。
 2. jekyll在编译md语法的时候，在code元素中不能出现空行，否则编译不通过。
+3. 尽量安装jekyll的本地环境，在本地编译通过之后，才上传github。
