@@ -12,8 +12,10 @@ description: 简单jQuery的widget实现
 3. 和原生的widget兼容，即使用原生的widget替换简化版的，组件功能正常。
 > 不多说，直接上代码：
 <pre><code>
-$.widgetBridge = function( name, object ) {
-	var fullName = name;
+$.widgetBridge = function( fullName, object ) {
+	var namespace = name.split("."),
+			name = namespace.length > 1 ? namespace[1] : namespace[0];
+
 	$.fn[ name ] = function( options ) {
 		var isMethodCall = typeof options === "string",
 			args = [].slice.call( arguments, 1 ),
@@ -78,10 +80,10 @@ $.widgetBridge = function( name, object ) {
 	};
 };
 </code></pre>
->之后，可以通过$.widgetBridge("dialog", options)进行创建jQuery插件，和原生的widget使用方法一样。原理很简单，widget首先约定，如果第一个参数是字符串，则是方法调用，否则是创建widget对象，创建的时候默认调用_create函数，创建完毕之后，会把所有的属性通过$.data挂在DOM元素下面，已达到存储私有属性的目的，下面是简单的使用例子：
+>之后，可以通过$.widgetBridge("namespace.pluginName", options)进行创建jQuery插件，和原生的widget使用方法一样。原理很简单，widget首先约定，如果第一个参数是字符串，则是方法调用，否则是创建widget对象，创建的时候默认调用_create函数，创建完毕之后，会把所有的属性通过$.data挂在DOM元素下面，已达到存储私有属性的目的，下面是简单的使用例子：
 <pre><code>
-//创建名字为popup的widget
-$.widgetBridge("popup", {
+//创建名字为pluginName的widget,namespace在这里无用，为了兼容原生的widget
+$.widgetBridge("namespace.pluginName", {
 	options: {
 	},
 	_create: function() {
@@ -92,10 +94,11 @@ $.widgetBridge("popup", {
 	hide: function() {
 	},
 	remove: function() {
+		this.destroy();
 	}
 });
 // 通过下面的代码初始化和调用show函数代码
-var popup = $("#selector").popup({
+var popup = $("#selector").pluginName({
 	
 });
 popup.popup("show"); //调用show方法

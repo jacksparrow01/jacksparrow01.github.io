@@ -10,13 +10,3 @@ title: 文章列表
   </ul>
 </div>
 
-<div id="pages">
-  <h2>分页：</h2>
-  <ul>
-    {% for page in site.html_pages %}
-      {% if page.title %}
-        <li><a href="{{ page.url }}">{{ page.description }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
