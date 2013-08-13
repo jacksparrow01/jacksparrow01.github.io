@@ -15,12 +15,10 @@ description: 简单jQuery的widget实现
 $.widgetBridge = function( fullName, object ) {
 	var namespace = name.split("."),
 			name = namespace.length > 1 ? namespace[1] : namespace[0];
-
 	$.fn[ name ] = function( options ) {
 		var isMethodCall = typeof options === "string",
 			args = [].slice.call( arguments, 1 ),
 			returnValue = this;
-		
 		options = options || {};
 		// 以$().widgetName("method", args);
 		// 这是组件的方法调用
@@ -30,7 +28,6 @@ $.widgetBridge = function( fullName, object ) {
 			if (options.indexOf("_") !== 0) {
 				this.each(function() {
 					var	instance = $.data( this, fullName ); //挂在DOM元素上
-	
 					if ( !instance ) {
 						return $.error( "cannot call methods on " + name + " prior to initialization; " +
 							"attempted to call method '" + options + "'" );
@@ -45,7 +42,6 @@ $.widgetBridge = function( fullName, object ) {
 						methodValue = instance.options;
 						return false;
 					}
-	
 					if (!methodValue)
 						methodValue = ( instance[ options ] || jQuery.noop ).apply( instance, args );
 					if (options === "destroy") {
@@ -55,11 +51,9 @@ $.widgetBridge = function( fullName, object ) {
 				});
 			}
 			return methodValue; //返回第一个值
-	
 		} else {
 			this.each(function() {
 				var self = this, instance = $.data( this, fullName );
-				
 				// 首次创建，第二次之后不再做任何事情
 				if ( !instance ) {
 					instance = $.extend(true, {}, object);
@@ -71,11 +65,10 @@ $.widgetBridge = function( fullName, object ) {
 					$.data( this, fullName, instance );
 					instance.element = $(this);
 					// 默认_create函数是构造函数
-					instance._create && instance._create.call(instance, options);
+					instance._create &amp;&amp; instance._create.call(instance, options);
 				}
 			});
 		}
-	
 		return returnValue;
 	};
 };
