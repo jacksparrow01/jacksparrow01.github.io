@@ -15,7 +15,6 @@ description: JavaScript的日期处理总结
 Date.UTC(2012, 1, 1); // UTC时间，输出1328054400000
 new Date(2012, 1, 1).getTime(); //当前时区时间，输出1328025600000
 // Date的构造函数都使用当前时区
-// getTime()和valueOf()使用的是UTC的时间
 </code></pre>
 
 ## Date.parse跨浏览器<br/>
