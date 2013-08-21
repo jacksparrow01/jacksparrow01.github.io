@@ -14,4 +14,4 @@ description: iframe跨域解决方案
 <img src="http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png" />
 
 > 最后，本人耐不住寂寞，对https和http两种协议的跨域情况进行了一番折腾测试，发现这个方案同样支持https和http的跨域，下面是测试的结果，相当牛X。
-<img src="/images/iframe-crossdomain-test.png" />
+<br/><img src="http://jacksparrow01.github.io/images/iframe-crossdomain-test.png" />
