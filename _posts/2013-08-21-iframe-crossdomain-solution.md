@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Chrome的Console.log中的奇怪问题
-description: Chrome的Console.log中的奇怪问题
+title: iframe跨域解决方案
+description: iframe跨域解决方案
 ---
 
 ### iframe跨域解决方案
