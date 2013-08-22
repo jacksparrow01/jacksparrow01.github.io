@@ -6,3 +6,9 @@
   http://www.cnblogs.com/snandy/archive/2011/03/03/1970132.html
 3. 比较偏的函数：pushStach、proxy、noop、isWindow、isFunction、grep、makeArray的用法
 
+### jshint工具使用
+1. 包括nodejs的简单的使用实例
+2. 包括sublime text的jshint插件的安装使用
+
+### sublime text常用插件
+1. 包括sublime text的强大的快捷键以及常用插件使用
