@@ -10,5 +10,12 @@
 1. 包括nodejs的简单的使用实例
 2. 包括sublime text的jshint插件的安装使用
 
-### sublime text常用插件
+### 常用工具
 1. 包括sublime text的强大的快捷键以及常用插件使用
+2. Dropbox，网络文件盘，用于同步多处文件
+3. switchHost，用于切换Host
+
+### 前端JS的html编码解码问题
+1. html encode和decode编解码常见的字符
+2. jQuery text函数
+3. html元素自动编解码机制分析
