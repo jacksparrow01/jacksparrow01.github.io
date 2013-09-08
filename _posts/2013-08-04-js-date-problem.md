@@ -36,55 +36,67 @@ return curTime;
 ## 日期的toString函数输出格式
 >日期的字符串格式在不同的地区和浏览器不一致，所以应该构造函数输出统一的时间格式：
 <pre><code>
-dateFormat = function (format, timestamp) {
-if (!defined(timestamp) || isNaN(timestamp)) {
-	return 'Invalid date';
+// 判断元素是否已经定义
+function defined(obj) {
+    return typeof obj !== "undefined";
 }
-// pick取到参数列表中第一个非空的参数返回
-format = pick(format, '%Y-%m-%d %H:%M:%S');
-
-var date = new Date(timestamp),
-    key, // used in for constuct below
-    hours = date[getHours](),
-    day = date[getDay](),
-    dayOfMonth = date[getDate](),
-    month = date[getMonth](),
-    fullYear = date[getFullYear](),
-    lang = defaultOptions.lang,
-    langWeekdays = lang.weekdays,
-    // List all format keys. Custom formats can be added from the outside. 
-    replacements = ({
-    'a': langWeekdays[day].substr(0, 3), // Short weekday, like 'Mon'
-    'A': langWeekdays[day], // Long weekday, like 'Monday'
-    'd': pad(dayOfMonth), // pad函数将一位的月份添加前置0变成两位
-    'e': dayOfMonth, // Day of the month, 1 through 31
-
-    // Month
-    'b': lang.shortMonths[month], // Short month, like 'Jan'
-    'B': lang.months[month], // Long month, like 'January'
-    'm': pad(month + 1), // Two digit month number, 01 through 12
-
-    // Year
-    'y': fullYear.toString().substr(2, 2), // Two digits year, like 09 for 2009
-    'Y': fullYear, // Four digits year, like 2009
-
-    // Time
-    'H': pad(hours), // Two digits hours in 24h format, 00 through 23
-    'I': pad((hours % 12) || 12), // Two digits hours in 12h format, 00 through 11
-    'l': (hours % 12) || 12, // Hours in 12h format, 1 through 12
-    'M': pad(date[getMinutes]()), // Two digits minutes, 00 through 59
-    'p': hours &lt; 12 ? 'AM' : 'PM', // Upper case AM or PM
-    'P': hours &lt; 12 ? 'am' : 'pm', // Lower case AM or PM
-    'S': pad(date.getSeconds()), // Two digits seconds, 00 through  59
-    'L': pad(mathRound(timestamp % 1000), 3) // Milliseconds (naming from Ruby)
-});
-
-
-// do the replaces
-for (key in replacements) {
-    while (format.indexOf('%' + key) !== -1) { // regex would do it in one line, but this is faster
-    	format = format.replace('%' + key, typeof replacements[key] === 'function' ? replacements[key](timestamp) : replacements[key]);
+// 得到参数列表中第一个不为false的参数
+function pick() {
+    for(var i = 0; i &lt; arguments.length; i++) {
+        if (arguments[i])
+            return arguments[i];
     }
 }
+function pad(str) {
+    str = str + "";
+    if (str.length == 1) {
+        str = "0" + str;
+    }
+    return str;
+}
+function dateFormat(timestamp, format) {
+    if (!defined(timestamp) || isNaN(timestamp)) {
+        return 'Invalid date';
+    }
+    // pick取到参数列表中第一个非空的参数返回
+    format = pick(format, '%Y-%m-%d %H:%M:%S');
 
+    var date = new Date(timestamp),
+        key, // used in for constuct below
+        hours = date["getHours"](),
+        day = date["getDay"](),
+        dayOfMonth = date["getDate"](),
+        month = date["getMonth"](),
+        fullYear = date["getFullYear"](),
+        mathRound = Math.round,
+        // List all format keys. Custom formats can be added from the outside. 
+        replacements = ({
+        'd': pad(dayOfMonth), // pad函数将一位的月份添加前置0变成两位
+        'e': dayOfMonth, // Day of the month, 1 through 31
+
+        'm': pad(month + 1), // Two digit month number, 01 through 12
+        'n': month + 1,
+
+        // Year
+        'y': fullYear.toString().substr(2, 2), // Two digits year, like 09 for 2009
+        'Y': fullYear, // Four digits year, like 2009
+
+        // Time
+        'H': pad(hours), // Two digits hours in 24h format, 00 through 23
+        'I': pad((hours % 12) || 12), // Two digits hours in 12h format, 00 through 11
+        'l': (hours % 12) || 12, // Hours in 12h format, 1 through 12
+        'M': pad(date["getMinutes"]()), // Two digits minutes, 00 through 59
+        'p': hours &lt; 12 ? 'AM' : 'PM', // Upper case AM or PM
+        'P': hours &lt; 12 ? 'am' : 'pm', // Lower case AM or PM
+        'S': pad(date.getSeconds()), // Two digits seconds, 00 through  59
+        'L': pad(mathRound(timestamp % 1000), 3) // Milliseconds (naming from Ruby)
+    });
+
+    // do the replaces
+    for (key in replacements) {
+        while (format.indexOf('%' + key) !== -1) { // regex would do it in one line, but this is faster
+            format = format.replace('%' + key, typeof replacements[key] === 'function' ? replacements[key](timestamp) : replacements[key]);
+        }
+    }
+    return format;
 };</code></pre>
