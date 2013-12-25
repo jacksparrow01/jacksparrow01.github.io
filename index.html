@@ -3,11 +3,11 @@ layout:           default
 titlef:           index
 ---
 <header id="prefile">
-    <h2>I'm PIZn.</h2>
-    <p>Phosphorus,Iodine 2& Zinc.<g:plusone size="small"></g:plusone></p>
+    <h2>Jacksparrow 博客</h2>
+    <p>码下生活的点点滴滴</p>
 </header>
 <article id="post-list">
-    <h3>My GitHub Posts List</h3>
+    <h3>My Posts List</h3>
     <ul class="posts">
         {% for post in paginator.posts  %}
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="/blog{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></li>

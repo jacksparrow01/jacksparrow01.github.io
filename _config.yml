@@ -2,7 +2,7 @@ markdown:         rdiscount
 pygments:         true
 paginate:         6
 
-title:            PIZn's Blog theme
+title:            Jacksparrow的个人博客
 url:              http://pizn.github.com
 feed:             /blog/atom.xml
 author:
