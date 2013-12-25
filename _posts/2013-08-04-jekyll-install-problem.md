@@ -37,6 +37,9 @@ description: jekyll本地安装环境搭建过程中的问题
 	<pre><code>self.content = File.read(File.join(base, name),:encoding=>"utf-8")</code></pre>
 	b、设置两个用户变量LC_ALL和LANG为en_US.UTF-8。<br/><br/>
 
+## 坑
+> jekyll中，是不能将<等HTML标签放在行首的，否则会出现错误“xxx is left after raw html xxx”，所以建议在HTML标签前面加&nbsp;空格。
+
 5. 参考：<br/>
 http://xdutaotao.github.io/blog/2012/05/30/jekyll-encode/<br/>
 http://demi-panda.com/2012/12/29/building-sites-with-jekyll/<br/>

@@ -100,3 +100,4 @@ function dateFormat(timestamp, format) {
     }
     return format;
 };</code></pre>
+## 最后，推荐一个非常实用的日期处理库moment.js，官网：http://momentjs.com
