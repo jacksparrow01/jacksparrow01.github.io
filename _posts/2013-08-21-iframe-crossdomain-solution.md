@@ -9,7 +9,8 @@ description: iframe跨域解决方案
 
 > 前端的JS是无法跨域的，新的HTML5的postMessage支持跨域发送数据，目前，postMessage的浏览器支持已经比较好了，如下图所示：
 
-&nbsp;<br /><img width="100%" src="http://jacksparrow01.github.io/images/postMessage-support.png" /><br />
+&nbsp;<br/><img style="width:100%;" src="http://jacksparrow01.github.io/images/postMessage-support.png" /><br/>
+
 > 因此，只需要支持IE6/7即可，只要能找到解决方案在一些低端的浏览器上实现iframe跨域，就完美了。兴庆的是，如果想访问一个iframe的window.name时，只要将其location改为‘about:blank’即可，这个在IE6/7下是成功的，因此，可以在iframe页面中新建两个iframe用于发送和接受，IE6/7下parent和iframe窗口都可以访问到这两个iframe，并通过设置window.name属性进行跨域，原理参考下图（来自原文）。
 
 &nbsp;<img width="100%" src="http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png" />
