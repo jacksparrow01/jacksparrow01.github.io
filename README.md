@@ -1,4 +1,3 @@
-我是杰克船长，这是我的个人博客站点。
-=======================
+###主题介绍
 
-
+<a href="http://www.pizn.net/14-11-2012/theone-blog-theme/" title="theOne">Jekyll 博客主题 theOne</a>
